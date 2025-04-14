@@ -159,9 +159,9 @@ namespace Lab_7
                     if (half < 3) half = 3;
                     if (half > 10) half = 10;
                     double[] prizes = new double[half];
-                    prizes[0] = 0.5 * Bank;
-                    prizes[1] = 0.3 * Bank;
-                    prizes[2] = 0.2 * Bank;
+                    prizes[0] = 0.4 * Bank;
+                    prizes[1] = 0.25 * Bank;
+                    prizes[2] = 0.15 * Bank;
                     for (int i = 3; i < half; i++) prizes[i] = Bank * 0.2 / half;
                     return prizes;
                 }

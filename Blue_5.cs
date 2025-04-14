@@ -53,6 +53,8 @@ namespace Lab_7
 
             public Sportsman[] Sportsmen => _sportsmen;
 
+            public int SportsmenID => _sportsmenID;
+
             public int SummaryScore
             {
                 get
@@ -101,9 +103,7 @@ namespace Lab_7
                 if (_sportsmen == null) return;
                 for (int i = 0; i < sportsmen.Length; i++)
                 {
-                    if (_sportsmenID >= 6) return;
-                    _sportsmen[_sportsmenID] = sportsmen[i];
-                    _sportsmenID++;
+                    Add(sportsmen[i]);
                 }
             }
 
@@ -155,7 +155,7 @@ namespace Lab_7
 
             protected override double GetTeamStrength()
             {
-                if (Sportsmen == null) return 0;
+                if ((Sportsmen == null) || (SportsmenID == 0)) return 0;
                 double sum = 0;
                 int count = 0;
                 for (int i = 0; i < Sportsmen.Length; i++)
@@ -176,7 +176,7 @@ namespace Lab_7
 
             protected override double GetTeamStrength()
             {
-                if (Sportsmen == null) return 0;
+                if ((Sportsmen == null) || (SportsmenID == 0)) return 0;
                 double sum = 0;
                 int count = 0;
                 double multiplier = 1;
