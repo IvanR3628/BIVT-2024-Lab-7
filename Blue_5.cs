@@ -53,8 +53,6 @@ namespace Lab_7
 
             public Sportsman[] Sportsmen => _sportsmen;
 
-            public int SportsmenID => _sportsmenID;
-
             public int SummaryScore
             {
                 get
@@ -93,7 +91,7 @@ namespace Lab_7
 
             public void Add(Sportsman sportsman)
             {
-                if ((_sportsmen == null) || (_sportsmenID >= 6)) return;
+                if ((_sportsmen == null) || (_sportsmen.Length == 0) || (sportsman == null) || (_sportsmenID >= 6)) return;
                 _sportsmen[_sportsmenID] = sportsman;
                 _sportsmenID++;
             }
@@ -112,13 +110,14 @@ namespace Lab_7
             public static Team GetChampion(Team[] teams)
             {
                 if (teams == null) return null;
-                Team champion = null;
-                double mx = double.MinValue;
+                Team champion = teams[0];
+                double mx = champion.GetTeamStrength();
                 for (int i = 0; i < teams.Length; i++)
                 {
-                    if (teams[i].GetTeamStrength() > mx)
+                    double check = teams[i].GetTeamStrength();
+                    if (check > mx)
                     {
-                        mx = teams[i].GetTeamStrength();
+                        mx = check;
                         champion = teams[i];
                     }
                 }
@@ -155,7 +154,7 @@ namespace Lab_7
 
             protected override double GetTeamStrength()
             {
-                if ((Sportsmen == null) || (SportsmenID == 0)) return 0;
+                if (Sportsmen == null) return 0;
                 double sum = 0;
                 int count = 0;
                 for (int i = 0; i < Sportsmen.Length; i++)
@@ -176,7 +175,7 @@ namespace Lab_7
 
             protected override double GetTeamStrength()
             {
-                if ((Sportsmen == null) || (SportsmenID == 0)) return 0;
+                if (Sportsmen == null) return 0;
                 double sum = 0;
                 int count = 0;
                 double multiplier = 1;

@@ -162,7 +162,7 @@ namespace Lab_7
                     prizes[0] = 0.4 * Bank;
                     prizes[1] = 0.25 * Bank;
                     prizes[2] = 0.15 * Bank;
-                    for (int i = 3; i < half; i++) prizes[i] = Bank * 0.2 / half;
+                    for (int i = 0; i < half; i++) prizes[i] += Bank * 0.2 / half;
                     return prizes;
                 }
             }
