@@ -59,8 +59,9 @@ namespace Lab_7
                 {
                     if (_sportsmen == null) return 0;
                     int scoresum = 0, score = 0;
-                    for (int i = 0; i < _sportsmen.Length; i++)
+                    for (int i = 0; i < _sportsmenID; i++)
                     {
+                        if (_sportsmen[i] == null) continue;
                         score = 6 - _sportsmen[i].Place;
                         if ((score > 0) && (score < 6))
                         {
